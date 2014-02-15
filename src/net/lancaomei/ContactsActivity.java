@@ -57,7 +57,7 @@ public class ContactsActivity extends ListActivity {
 	private ArrayList<Bitmap> mContactsPhotos = new ArrayList<Bitmap>();
 
 	ListView mListView = null;
-	MyListAdapter myAdapter = null;
+	ContactListAdapter myAdapter = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class ContactsActivity extends ListActivity {
 		/** 得到手机通讯录联系人信息 **/
 		getPhoneContacts();
 
-		myAdapter = new MyListAdapter(this);
+		myAdapter = new ContactListAdapter(this);
 		setListAdapter(myAdapter);
 
 		mListView.setOnItemClickListener(new OnItemClickListener() {
@@ -170,8 +170,8 @@ public class ContactsActivity extends ListActivity {
 		}
 	}
 
-	class MyListAdapter extends BaseAdapter {
-		public MyListAdapter(Context context) {
+	class ContactListAdapter extends BaseAdapter {
+		public ContactListAdapter(Context context) {
 			mContext = context;
 		}
 

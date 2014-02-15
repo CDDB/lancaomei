@@ -39,7 +39,7 @@ public class ControlActivity extends Activity {
 		botton_lemna.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(mContext, ContactsActivity.class);
+				Intent intent = new Intent(mContext, CardListActivity.class);
 				startActivity(intent);
 			}
 		});

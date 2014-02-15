@@ -14,29 +14,45 @@
             android:layout_height="wrap_content"
             android:text="保存" />
         
+          <EditText
+             android:id="@+id/edit_name"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:ems="10"
+             android:hint="name" />
+          
          <EditText
-            android:id="@+id/edit_name"
+             android:id="@+id/edit_tag"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:ems="10"
+             android:hint="tag" />
+        
+        <EditText
+            android:id="@+id/edit_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" />
-         
-        
+            android:hint="desc" >
+
+            <requestFocus />
+        </EditText>
+           
         <EditText
             android:id="@+id/edit_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" >
-            <requestFocus />
-        </EditText>
-               
+            android:inputType="phone" />
+                
         
         <ImageView
             android:id="@+id/image_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            />
+
+
        
     </LinearLayout>
     
