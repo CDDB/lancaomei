@@ -3,7 +3,7 @@
     android:layout_width="fill_parent" android:layout_height="fill_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <Button
@@ -23,6 +23,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="拍照" />
+        
+         <Button
+            android:id="@+id/Button_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="搜索" />
 
     </LinearLayout>
 </ScrollView>
