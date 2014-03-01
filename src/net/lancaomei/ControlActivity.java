@@ -57,6 +57,17 @@ public class ControlActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		
+		/** 获取浮萍信息 **/
+		Button botton_search = (Button) findViewById(R.id.Button_search);
+		botton_search.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(mContext, SearchActivity.class);
+				startActivity(intent);
+			}
+		});
 
 	}
 }

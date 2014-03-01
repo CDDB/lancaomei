@@ -2,6 +2,9 @@ package net.lancaomei;
 
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -32,8 +35,16 @@ public class CardListActivity extends ListActivity {
 		mListView = this.getListView();
 		storage = new Storage(mContext);
 		
-		/** 得到手机通讯录联系人信息 **/
-		getPhoneContacts();
+		
+		Bundle bundle = getIntent().getExtras();
+		if (bundle.getBoolean("input")) {
+			String json_res = bundle.getString("search_res");
+			getDetailFromJson(json_res);
+			
+		} else {
+			/** 得到手机通讯录联系人信息 **/
+			getPhoneContacts();
+		}
 
 		myAdapter = new CardListAdapter(this);
 		setListAdapter(myAdapter);
@@ -61,6 +72,24 @@ public class CardListActivity extends ListActivity {
 	/** 得到手机通讯录联系人信息 **/
 	private void getPhoneContacts() {
 		storage.get(detailList);
+	}
+	
+	private void getDetailFromJson(String json) {
+		Gson gson = new GsonBuilder().create();
+		DianPingBusinesseRes business =  gson.fromJson(json, DianPingBusinesseRes.class);
+		ArrayList<DianPingBusiness> items = business.getBusinesses();
+		
+		for(DianPingBusiness item :  items) {
+			ContactDetail detail = new ContactDetail();
+			detail.setImageTagPath(item.getPhoto_url());
+			detail.setTag(item.getCategories().toString());
+			detail.setName(item.getName());
+			detail.setPhone(item.getTelephone());
+			if (1 == item.getHas_coupon()) {
+				detail.setDesc(item.getCoupon_description());
+			}
+			detailList.add(detail);
+		}
 	}
 
 	
